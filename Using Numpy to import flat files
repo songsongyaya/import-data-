@@ -1,0 +1,22 @@
+#Using Numpy to import flat files with same datatype
+import numpy as np
+file='digits.csv'
+digits=np.loadtxt(file, delimiter=',')
+print(type(digits))
+file='digits_header.txt'
+data=np.loadtxt(file, delimiter=\t,skiprows=1,usecols=[0,2
+file='seaslug.txt'
+data=np.loadtxt(file,delimiter='\t',dtype=str)
+#Using pandas to import flat files as dataframes
+import pandas as pd
+file='titanic.csv'
+df=pd.read_csv(file)
+print(df.head())
+#transfer dataframe to array
+file='digits.csv'
+data=pd.read_csv(file, nrows=5, header=None)
+data_array=data.values
+#pandas package to deal with issues like comments occuring in flat files or empty lines and missing values
+file='titanic_corrupt.txt'
+data=pd.read_csv(file,sep='\t',comment='#', na_values='Nothing')
+print(data.head())
