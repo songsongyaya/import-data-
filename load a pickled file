@@ -1,0 +1,4 @@
+import pickle
+with open( 'data.pkl', mode='rb') as file:
+    d= pickle.load(file)
+print(d)
