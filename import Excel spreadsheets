@@ -1,0 +1,14 @@
+import pandas
+file='battledeath.xlsx'
+xl=pd.ExcelFile(file)
+# Print sheet names
+print(xl.sheet_names)
+# load a sheet into a dataframe by name
+df1=xl.parse('2004')
+print(df1.head())
+# load the first sheet and rename the columns:
+df2=xl.parse(0, skiprows=[0],names=['Country','AAM due to War(2002)'])
+print(df2.head())
+# Parse the first column of the second sheet and rename the column:
+df3=xl.parse(1, parse_cols=[0],skiprows=[0],names=['Country'])
+print(df3.head())
