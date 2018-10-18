@@ -1,0 +1,18 @@
+from sqlalchemy import create_engine
+import pandas as pd
+# create engine
+engine=create_engine('sqlite:///Chinook.sqlite')
+#perform query and save results to dataframe
+with engine.connect() as con:
+    rs=con.execute('select LastName, Title from Employee')
+    df=pd.DataFrame(rs.fetchmany(size=3))
+    df.columns=rs.keys()
+print(df.head())
+
+#using pandas to write the results of SQL to a DataFrame
+from sqlalchemy import create_engine
+import pandas as pd
+engine=create_engine('sqlite:///Chinook.sqlite')
+df=pd.read_sql_query("select * from PlaylistTrack INNER JOIN Track on PlaylistTrack.TrackId = Track.TrackId where Milliseconds < 250000",engine',engine)
+
+
