@@ -7,6 +7,8 @@ file='digits_header.txt'
 data=np.loadtxt(file, delimiter=\t,skiprows=1,usecols=[0,2
 file='seaslug.txt'
 data=np.loadtxt(file,delimiter='\t',dtype=str)
+
+
 #Using pandas to import flat files as dataframes
 import pandas as pd
 file='titanic.csv'
