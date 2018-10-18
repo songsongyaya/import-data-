@@ -1,0 +1,21 @@
+import numpy as np
+import h5py
+file='LIGO_data.hdf5'
+data=h5py.File(file,'r')
+for key in data.keys():
+    print(key)
+#get the HDF5 group:
+group=data['strain']
+for key in group.keys():
+    print(key)
+#set variable equal to time series data
+strain=data["strain"}{"Strain"].value
+#set number of time points to sample
+num_samples=10000
+#set time vector
+time=np.arrange(0, 1, 1/num_samples)
+#plot data
+plt.plot(time,strai[:num_samples])
+plt.xlabel('GPS Time (s)')
+plt.ylabel('strain')
+plt.show()
